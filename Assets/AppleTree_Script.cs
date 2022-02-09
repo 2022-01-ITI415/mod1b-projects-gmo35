@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AppleTree_Script : MonoBehaviour
 {
+    [Header("Set in Inspector")]
     public GameObject applePrefab;
 
     public float speed = 1f;

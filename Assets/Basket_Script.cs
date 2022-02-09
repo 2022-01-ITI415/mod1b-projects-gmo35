@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Basket_Script : MonoBehaviour
 {
+    [Header("Set Dynamically")]
     public Text scoreGT;
     // Start is called before the first frame update
     void Start()
@@ -25,10 +26,9 @@ public class Basket_Script : MonoBehaviour
         this.transform.position = pos;
     }
     void OnCollisionEnter(Collision coll){
-        GameObject collideWith = coll.gameObject;
-        if (collideWith.tag == "Apple"){
-            Destroy (collideWith);
-
+        GameObject collidedWith = coll.gameObject;
+        if (collidedWith.tag == "Apple"){
+            Destroy (collidedWith);
             int score = int.Parse(scoreGT.text);
             score += 100;
             scoreGT.text = score.ToString();
