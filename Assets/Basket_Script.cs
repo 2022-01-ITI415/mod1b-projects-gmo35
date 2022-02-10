@@ -11,7 +11,7 @@ public class Basket_Script : MonoBehaviour
     void Start()
     {
         GameObject scoreGO = GameObject.Find("ScoreCounter");
-        scoreGT = scoreGO.GetComponent<Text>();
+        scoreGT = scoreGO.GetComponent <Text>();
         scoreGT.text = "0";
     }
 
@@ -28,7 +28,8 @@ public class Basket_Script : MonoBehaviour
     void OnCollisionEnter(Collision coll){
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Apple"){
-            Destroy (collidedWith);
+            Destroy(collidedWith);
+            
             int score = int.Parse(scoreGT.text);
             score += 100;
             scoreGT.text = score.ToString();
