@@ -6,7 +6,7 @@ using TMPro;
 
 public class CollisionScript : MonoBehaviour
 {
-    public TextMeshProUGUI countText;
+    public TextMeshProUGUI CountText;
     private int count;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class CollisionScript : MonoBehaviour
     // Update is called once per frame
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        CountText.text = "Count: " + count.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +27,7 @@ public class CollisionScript : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+
             SetCountText();
         }
     }
