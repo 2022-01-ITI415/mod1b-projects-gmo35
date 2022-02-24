@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Slingshot : MonoBehaviour
 {
     static private Slingshot S;
@@ -27,7 +28,7 @@ public class Slingshot : MonoBehaviour
 
     void Awake(){
         S = this;
-        Transform launchPointTrans = transform.FindChild("LaunchPoint");
+        Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
         launchPos = launchPointTrans.position;
@@ -77,6 +78,8 @@ public class Slingshot : MonoBehaviour
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
             projectile = null;
+            MissionDemolition.ShotFired();
+            ProjectileLine.S.poi = projectile;
         }
     }
 }
